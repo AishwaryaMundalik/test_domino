@@ -38,7 +38,7 @@ if clear_button:
     ]
 
 # Header Image - You can change this to suit your application
-st.image("images/domino_banner.png")
+st.image("https://futurium.ec.europa.eu/sites/default/files/2020-06/eu-ai-alliance-3_0.png")
 # container for chat history
 response_container = st.container()
 # container for text box
@@ -61,11 +61,11 @@ with container:
         answer = None
         with st.spinner("Searching for the answer..."):
             # You will need to update the "post" and "auth" details for the model you have deployed
-            response = requests.post("https://se-demo.domino.tech:443/models/65b2846db2e5737d566de52e/latest/model",
-                auth=(
-                    "dWyCVvxpastxkWhGf0TIXMXpsWWGnSrfGzFAV7yr3O33f4Hs3qmeQB5sWxbfrLy7",
-                    "dWyCVvxpastxkWhGf0TIXMXpsWWGnSrfGzFAV7yr3O33f4Hs3qmeQB5sWxbfrLy7"
-                ),
+            response = requests.post("https://ws.domino-eval.com:443/models/6628fb935bdbbd56e9f7c144/latest/model",
+    auth=(
+        "X18p4AhlvC8oju9092GvtKzzIeWJw4yrCGw8UnefNZQne6eZNYitxIVZvFYgz7Bj",
+        "X18p4AhlvC8oju9092GvtKzzIeWJw4yrCGw8UnefNZQne6eZNYitxIVZvFYgz7Bj"
+        ),
                 json={
                     # This is the data payload for the API
                     # It contains the question and the number of output characters from the UI
@@ -87,4 +87,4 @@ with container:
             for i in range(len(st.session_state['generated'])):
                 message(st.session_state["past"][i], is_user=True, logo='https://freesvg.org/img/1367934593.png', key=str(i) + '_user')
                 # You can change this chat image to the logo of your organisation
-                message(st.session_state["generated"][i], logo='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk6e8aarUy37BOHMTSk-TUcs4AyAy3pfAHL-F2K49KHNEbI0QUlqWJFEqXYQvlBdYMMJA&usqp=CAU', key=str(i))
+                message(st.session_state["generated"][i], logo='https://ec.europa.eu/regional_policy/images/information-sources/logo-download-center/eu_flag.jpg', key=str(i))
